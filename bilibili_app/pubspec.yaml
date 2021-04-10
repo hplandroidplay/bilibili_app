@@ -35,6 +35,18 @@ dependencies:
   fluttertoast: ^8.0.1-nullsafety.0
   # tab 的指示器，用于首页
   underline_indicator: ^0.0.2
+  #  强大的轮播图 https://pub.dev/packages/flutter_swiper
+  flutter_swiper: ^1.1.6
+  #  状态栏管理 https://pub.dev/packages/flutter_statusbar_manager
+  flutter_statusbar_manager: ^2.0.0
+  #  列表布局 https://pub.dev/packages/flutter_staggered_grid_view
+  flutter_staggered_grid_view: ^0.4.0-nullsafety.3
+  #  透明图片 https://pub.dev/packages/transparent_image
+  transparent_image: ^2.0.0-nullsafety.0
+  #  加载图片并缓存到本地  https://pub.dev/packages/cached_network_image
+  cached_network_image: ^3.0.0-nullsafety
+  #lottie 动画 https://pub.dev/packages/lottie
+  lottie: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +66,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
+    - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

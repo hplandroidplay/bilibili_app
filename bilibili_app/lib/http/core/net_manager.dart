@@ -59,6 +59,7 @@ class NetManager {
 
     /// 又错误拦截器处理
     if (_errorInterceptor != null) _errorInterceptor(error);
+    throw error;
   }
 
   Future<NetResponse<T>> _send<T>(BaseRequest request) async {
