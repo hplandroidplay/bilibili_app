@@ -41,4 +41,8 @@ class LoginDao {
     }
     return result;
   }
+
+  static getBoardingPass() {
+    return CacheManager.getInstance().get(BOARDING_PASS);
+  }
 }

@@ -33,6 +33,8 @@ dependencies:
   shared_preferences: ^2.0.4
   #toast
   fluttertoast: ^8.0.1-nullsafety.0
+  # tab 的指示器，用于首页
+  underline_indicator: ^0.0.2
 
 dev_dependencies:
   flutter_test:
