@@ -1,4 +1,5 @@
 import 'package:bilibili_app/http/core/adapter/dio_net_adapter.dart';
+import 'package:bilibili_app/http/core/error_interceptor.dart';
 import 'package:bilibili_app/http/core/net_error.dart';
 import 'package:bilibili_app/http/core/net_response.dart';
 import 'package:bilibili_app/http/request/base_request.dart';
@@ -7,6 +8,8 @@ import 'package:bilibili_app/http/request/base_request.dart';
 ///
 class NetManager {
   static NetManager _manager;
+
+  ErrorInterceptor _errorInterceptor;
 
   static NetManager getInstance() {
     if (_manager == null) {
@@ -44,20 +47,27 @@ class NetManager {
         return result;
         break;
       case 401:
-        throw NeedLogin();
+        error = NeedLogin();
         break;
       case 403:
-        throw NeedAuth(result.toString(), data: result);
+        error = NeedAuth(result.toString(), data: result);
         break;
       default:
-        throw NetError(statusCode, result.toString(), data: result);
+        error = NetError(statusCode, result.toString(), data: result);
         break;
     }
+
+    /// 又错误拦截器处理
+    if (_errorInterceptor != null) _errorInterceptor(error);
   }
 
   Future<NetResponse<T>> _send<T>(BaseRequest request) async {
     DioNetAdapter adapter = DioNetAdapter();
     return adapter.send(request);
+  }
+
+  void setErrorInterceptor(ErrorInterceptor interceptor) {
+    this._errorInterceptor = interceptor;
   }
 
   void printLog(log) {

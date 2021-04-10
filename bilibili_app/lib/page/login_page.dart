@@ -1,6 +1,7 @@
 import 'package:bilibili_app/http/core/net_error.dart';
 import 'package:bilibili_app/http/dao/login_dao.dart';
-import 'package:bilibili_app/page/registration_page.dart';
+import 'package:bilibili_app/navigator/bottom_navigator.dart';
+import 'package:bilibili_app/navigator/navigator_manager.dart';
 import 'package:bilibili_app/utils/string_util.dart';
 import 'package:bilibili_app/utils/toast.dart';
 import 'package:bilibili_app/widget/appbar.dart';
@@ -26,10 +27,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar('密码登录', '注册', () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => RegistrationPage()));
-      }),
+      appBar: appBar(
+          '密码登录',
+          '注册',
+          () => NavigatorManager.getInstance()
+              .onJumpTo(RouteStatus.registration)),
       body: Container(
         child: ListView(
           children: [
@@ -88,6 +90,8 @@ class _LoginPageState extends State<LoginPage> {
       if (result['code'] == 0) {
         print('登录成功');
         showToast('登录成功');
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => BottomNavigator()));
       } else {
         print(result['msg']);
         showWarnToast(result['msg']);
