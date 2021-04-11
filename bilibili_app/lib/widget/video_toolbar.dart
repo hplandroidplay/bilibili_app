@@ -67,7 +67,7 @@ class VideoToolBar extends StatelessWidget {
             color: tint ? primary : Colors.grey,
             size: 20,
           ),
-          hiSpace(height: 5),
+          customSpace(height: 5),
           Text(text, style: TextStyle(color: Colors.grey, fontSize: 12))
         ],
       ),

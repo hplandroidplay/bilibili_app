@@ -1,6 +1,9 @@
 import 'package:bilibili_app/page/login_page.dart';
+import 'package:bilibili_app/page/notice_page.dart';
 import 'package:bilibili_app/page/registration_page.dart';
+import 'package:bilibili_app/page/video_details_page.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'bottom_navigator.dart';
 
@@ -25,7 +28,7 @@ int getPageIndex(List<MaterialPage> pages, RouteStatus routeStatus) {
 }
 
 ///自定义路由封装，路由状态
-enum RouteStatus { login, registration, home, detail, unknown }
+enum RouteStatus { login, registration, home, detail, notice, unknown }
 
 ///获取page对应的RouteStatus
 RouteStatus getStatus(MaterialPage page) {
@@ -35,10 +38,11 @@ RouteStatus getStatus(MaterialPage page) {
     return RouteStatus.registration;
   } else if (page.child is BottomNavigator) {
     return RouteStatus.home;
-  } /*else if (page.child is VideoDetailPage) {
+  } else if (page.child is VideoDetailPage) {
     return RouteStatus.detail;
-  }*/
-  else {
+  } else if (page.child is NoticePage) {
+    return RouteStatus.notice;
+  } else {
     return RouteStatus.unknown;
   }
 }
@@ -69,6 +73,15 @@ class NavigatorManager extends _RouteJumpListener {
       _instance = NavigatorManager._();
     }
     return _instance;
+  }
+
+  Future<bool> openH5(String url) async {
+    var result = await canLaunch(url);
+    if (result) {
+      return await launch(url);
+    } else {
+      return Future.value(false);
+    }
   }
 
   ///首页底部tab切换监听

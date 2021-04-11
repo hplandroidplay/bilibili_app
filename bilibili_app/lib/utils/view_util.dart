@@ -79,7 +79,7 @@ borderLine(BuildContext context, {bottom: true, top: false}) {
 }
 
 ///间距
-SizedBox hiSpace({double height: 1, double width: 1}) {
+SizedBox customSpace({double height: 1, double width: 1}) {
   return SizedBox(height: height, width: width);
 }
 

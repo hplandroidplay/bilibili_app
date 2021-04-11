@@ -66,3 +66,13 @@ class CustomBanner extends StatelessWidget {
     }
   }
 }
+
+///banner点击跳转
+void handleBannerClick(BannerModel bannerMo) {
+  if (bannerMo.type == 'video') {
+    NavigatorManager.getInstance().onJumpTo(RouteStatus.detail,
+        args: {"videoMo": VideoModel(vid: bannerMo.url)});
+  } else {
+    NavigatorManager.getInstance().openH5(bannerMo.url);
+  }
+}
