@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 /// 自己封装的轮播图
-class MyBanner extends StatelessWidget {
+class CustomBanner extends StatelessWidget {
   final List<BannerModel> bannerList;
   final double bannerHeight;
   final EdgeInsetsGeometry padding;
 
-  const MyBanner(this.bannerList,
+  const CustomBanner(this.bannerList,
       {Key key, this.bannerHeight = 160, this.padding})
       : super(key: key);
 

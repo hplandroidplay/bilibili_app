@@ -2,7 +2,7 @@ import 'package:bilibili_app/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:underline_indicator/underline_indicator.dart';
 
-///顶部tab切换组件
+///顶部tab切换组件,里面装有多个 tab widget
 class CustomTab extends StatelessWidget {
   final List<Widget> tabs;
   final TabController controller;
