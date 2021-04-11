@@ -6,6 +6,7 @@ import 'package:bilibili_app/model/video_model.dart';
 import 'package:bilibili_app/navigator/bottom_navigator.dart';
 import 'package:bilibili_app/navigator/navigator_manager.dart';
 import 'package:bilibili_app/page/login_page.dart';
+import 'package:bilibili_app/page/notice_page.dart';
 import 'package:bilibili_app/page/registration_page.dart';
 import 'package:bilibili_app/utils/toast.dart';
 import 'package:flutter/material.dart';
@@ -94,6 +95,8 @@ class BiliRouteDelegate extends RouterDelegate<BiliRoutePath>
       page = pageWrap(RegistrationPage());
     } else if (routeStatus == RouteStatus.login) {
       page = pageWrap(LoginPage());
+    } else if (routeStatus == RouteStatus.notice) {
+      page = pageWrap(NoticePage());
     }
     //重新创建一个数组，否则pages因引用没有改变路由不会生效
     tempPages = [...tempPages, page];

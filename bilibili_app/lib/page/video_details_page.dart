@@ -142,9 +142,10 @@ class _VideoDetailPageState extends State<VideoDetailPage>
   /// 简介头部列表
   buildContents() {
     return [
-      VideoHeader(
-        owner: videoModel.owner,
-      ),
+      if (videoModel.owner != null)
+        VideoHeader(
+          owner: videoModel.owner,
+        ),
       ExpandableContent(model: videoModel),
       VideoToolBar(
         detailModel: videoDetailMo,

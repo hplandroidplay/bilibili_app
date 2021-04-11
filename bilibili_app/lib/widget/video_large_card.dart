@@ -80,14 +80,14 @@ class VideoLargeCard extends StatelessWidget {
       children: [
         //作者
         _owner(),
-        hiSpace(height: 5),
+        customSpace(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
                 ...smallIconText(Icons.ondemand_video, videoModel.view),
-                hiSpace(width: 5),
+                customSpace(width: 5),
                 ...smallIconText(Icons.list_alt, videoModel.reply)
               ],
             ),
@@ -117,7 +117,7 @@ class VideoLargeCard extends StatelessWidget {
                 color: Colors.grey, fontSize: 8, fontWeight: FontWeight.bold),
           ),
         ),
-        hiSpace(width: 8),
+        customSpace(width: 8),
         Text(
           owner.name,
           style: TextStyle(fontSize: 11, color: Colors.grey),
