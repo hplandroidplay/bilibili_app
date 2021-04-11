@@ -47,6 +47,12 @@ dependencies:
   cached_network_image: ^3.0.0-nullsafety
   #lottie 动画 https://pub.dev/packages/lottie
   lottie: ^1.0.1
+  # chewie视频播放器  https://pub.dev/packages/chewie
+  chewie: ^1.0.0
+  # 由于chewie 依赖于 video_player，在这里也引入了
+  video_player: ^2.0.2
+  # 设置屏幕方向 https://pub.dev/packages/orientation
+  orientation: ^1.3.0
 
 dev_dependencies:
   flutter_test:
