@@ -1,4 +1,5 @@
 import 'package:bilibili_app/http/dao/login_dao.dart';
+import 'package:bilibili_app/utils/constants.dart';
 
 /// request 的基类
 enum HttpMethod { GET, POST, DELETE }
@@ -9,8 +10,8 @@ abstract class BaseRequest {
   Map<String, String> params = Map();
 
   Map<String, dynamic> header = {
-    'course-flag': 'fa',
-    "auth-token": "MjAyMC0wNi0yMyAwMzoyNTowMQ==fa",
+    Constants.authTokenK: Constants.authTokenV,
+    Constants.courseFlagK: Constants.courseFlagV
   };
 
   ///添加参数
