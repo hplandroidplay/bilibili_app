@@ -21,10 +21,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   BiliRouteDelegate _routeDelegate = BiliRouteDelegate();
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    print("测试一下添加 的Travis ci");
     return FutureBuilder<CacheManager>(
         future: CacheManager.preInit(),
         builder: (BuildContext context, AsyncSnapshot<CacheManager> snapshot) {
