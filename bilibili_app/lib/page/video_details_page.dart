@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bilibili_app/barrage/hi_barrage.dart';
 import 'package:bilibili_app/http/core/net_error.dart';
 import 'package:bilibili_app/http/dao/favorite_dao.dart';
 import 'package:bilibili_app/http/dao/like_dao.dart';
@@ -35,6 +36,7 @@ class _VideoDetailPageState extends State<VideoDetailPage>
   VideoDetailModel videoDetailMo;
   VideoModel videoModel;
   List<VideoModel> videoList = [];
+  var _barrageKey = GlobalKey<HiBarrageState>();
 
   @override
   void initState() {
@@ -90,6 +92,7 @@ class _VideoDetailPageState extends State<VideoDetailPage>
       model.url,
       cover: model.cover,
       overlayUI: videoAppBar(),
+      barrageUI: HiBarrage(key: _barrageKey, vid: model.vid, autoPlay: true),
     );
   }
 
