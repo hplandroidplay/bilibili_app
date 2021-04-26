@@ -13,10 +13,11 @@ import 'package:flutter/material.dart';
 
 import 'page/video_details_page.dart';
 import 'utils/color.dart';
+import 'utils/hi_defend.dart';
 
 /// APP 的主页面
 void main() {
-  runApp(MyApp());
+  HiDefend().run(MyApp());
 }
 
 class MyApp extends StatelessWidget {

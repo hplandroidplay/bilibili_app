@@ -200,9 +200,16 @@ class _HomePageState extends PageState<HomePage>
               ),
             ),
           )),
-          Icon(
-            Icons.explore_outlined,
-            color: Colors.grey,
+          InkWell(
+            onTap: () {
+              // _testTryCatch();
+              // _testCrash2();
+              _testCrash3();
+            },
+            child: Icon(
+              Icons.explore_outlined,
+              color: Colors.grey,
+            ),
           ),
           InkWell(
             onTap: () {
@@ -219,5 +226,36 @@ class _HomePageState extends PageState<HomePage>
         ],
       ),
     );
+  }
+
+  /// 捕获同步异常
+  void _testTryCatch() {
+    try {
+      throw StateError('There is a dart exception.');
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  /// 捕获异步异常
+  void _testCrash2() async {
+    //使用Future提供的catchError语句来进行捕获
+    Future.delayed(Duration(seconds: 1))
+        .then(
+            (e) => throw StateError('This is first Dart exception in Future.'))
+        .catchError((e) => print(e));
+    //将异步转同步然后通过try-catch进行捕获；
+    try {
+      await Future.delayed(Duration(seconds: 1)).then(
+          (e) => throw StateError('This is second Dart exception in Future.'));
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  /// 直接抛出异常，不进行处理，交给全局进行捕获
+  void _testCrash3() async {
+    Future.delayed(Duration(seconds: 1)).then((e) => throw StateError(
+        'runZonedGuarded:sThis is a Dart exception in Future.'));
   }
 }
