@@ -27,11 +27,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(
-          '密码登录',
-          '注册',
-          () => NavigatorManager.getInstance()
-              .onJumpTo(RouteStatus.registration)),
+      appBar: appBar('密码登录', '注册', () {
+        NavigatorManager.getInstance().onJumpTo(RouteStatus.registration);
+      }, key: Key('registration')),
       body: Container(
         child: ListView(
           children: [
